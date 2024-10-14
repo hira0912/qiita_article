@@ -13,9 +13,8 @@ OSにAmazonLinux2023を選択した場合、従来通りの手法ではインス
 
 # 何故fail2banを導入する事が難しいか
 ## AmazonLinux2023のyumリポジトリ内に無い
-単純な話ですが、al2023のデフォルト状態から、
-dnfによるfail2banのインストールは出来ません。
-al2023のyumリポジトリ内に存在していない為です。
+al2023のデフォルト状態から、dnfによるfail2banのインストールは出来ません。
+理由は単純で、al2023のyumリポジトリ内に存在していない為です。
 
 ![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2737208/6163abb2-569f-dc85-6856-4eb7508c50bd.png)
 
@@ -30,11 +29,11 @@ AmazonLinux2023ではEPELをサポートしておらず、この手法を使う�
 
 
 # インストール手順
-インストールをする為には、直接buildを行います。
+fail2banをインストールをする為には、直接buildを行います。
 インストールするパッケージは、githubから取得します。
 
 ### python3-develの導入
-既に導入済なら不要ですが、先にpython3-develをインストールします。
+まず、python3-develをインストールします。インストール済なら本作業は不要です。
 
 ```
 sudo dnf install python3-devel
@@ -51,7 +50,7 @@ tar -xzvf 1.1.0.tar.gz
 ```
 
 ### fail2banサービスの作成
-インストールと、サービスの作成を行います。
+fail2banのインストールと、サービスの作成を行います。
 
 ```
 cd fail2ban-1.1.0/
